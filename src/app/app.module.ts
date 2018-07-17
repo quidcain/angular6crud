@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
-import { MatButtonModule, MatIconModule } from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatIconModule, MatInputModule } from '@angular/material';
 import { TranslateModule } from '@ngx-translate/core';
 import 'hammerjs';
 
@@ -38,6 +38,9 @@ import { LoginComponent } from './main/login/login.component';
     // Material
     MatButtonModule,
     MatIconModule,
+    MatCheckboxModule,
+    MatFormFieldModule,
+    MatInputModule,
 
     // Fuse modules
     FuseModule.forRoot(fuseConfig),
