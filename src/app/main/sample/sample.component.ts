@@ -16,30 +16,12 @@ export class SampleComponent
      * Constructor
      *
      * @param {FuseTranslationLoaderService} _fuseTranslationLoaderService
-     * @param _fuseConfigService
      */
     constructor(
-        private _fuseTranslationLoaderService: FuseTranslationLoaderService,
-        private _fuseConfigService: FuseConfigService
+        private _fuseTranslationLoaderService: FuseTranslationLoaderService
     )
     {
         this._fuseTranslationLoaderService.loadTranslations(english);
-        // Configure the layout
-        this._fuseConfigService.config = {
-            layout: {
-                navbar   : {
-                    hidden: true
-                },
-                toolbar  : {
-                    hidden: true
-                },
-                footer   : {
-                    hidden: true
-                },
-                sidepanel: {
-                    hidden: true
-                }
-            }
-        };
+
     }
 }
