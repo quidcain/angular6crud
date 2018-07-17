@@ -32,6 +32,9 @@ export const fuseConfig: FuseConfig = {
         sidepanel: {
             hidden  : false,
             position: 'right'
+        },
+        themeOptionsPanel: {
+            hidden: true
         }
     },
     customScrollbars: true

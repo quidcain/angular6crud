@@ -23,6 +23,9 @@ export interface FuseConfig
         sidepanel: {
             hidden: boolean,
             position: 'left' | 'right'
+        },
+        themeOptionsPanel: {
+            hidden: boolean
         }
     };
     customScrollbars: boolean;
