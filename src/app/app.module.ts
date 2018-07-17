@@ -21,39 +21,37 @@ import { LoginComponent } from './main/login/login.component';
 
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        LoginComponent
-    ],
-    imports     : [
-        BrowserModule,
-        BrowserAnimationsModule,
-        HttpClientModule,
+  declarations: [
+    AppComponent,
+    LoginComponent
+  ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
 
-        TranslateModule.forRoot(),
+    TranslateModule.forRoot(),
 
-        // Material moment date module
-        MatMomentDateModule,
+    // Material moment date module
+    MatMomentDateModule,
 
-        // Material
-        MatButtonModule,
-        MatIconModule,
+    // Material
+    MatButtonModule,
+    MatIconModule,
 
-        // Fuse modules
-        FuseModule.forRoot(fuseConfig),
-        FuseSharedModule,
-        FuseSidebarModule,
-        FuseThemeOptionsModule,
+    // Fuse modules
+    FuseModule.forRoot(fuseConfig),
+    FuseSharedModule,
+    FuseSidebarModule,
+    FuseThemeOptionsModule,
 
-        // App modules
-        LayoutModule,
-        SampleModule,
-        AppRoutingModule
-    ],
-    bootstrap   : [
-        AppComponent
-    ]
+    // App modules
+    LayoutModule,
+    SampleModule,
+    AppRoutingModule
+  ],
+  bootstrap: [
+    AppComponent
+  ]
 })
-export class AppModule
-{
-}
+export class AppModule { }

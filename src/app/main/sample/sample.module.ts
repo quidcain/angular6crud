@@ -7,10 +7,7 @@ import { FuseSharedModule } from '@fuse/shared.module';
 import { SampleComponent } from './sample.component';
 
 const routes = [
-    {
-        path     : 'sample',
-        component: SampleComponent
-    }
+  { path: 'sample', component: SampleComponent }
 ];
 
 @NgModule({
@@ -28,7 +25,4 @@ const routes = [
         SampleComponent
     ]
 })
-
-export class SampleModule
-{
-}
+export class SampleModule { }
