@@ -46,7 +46,7 @@ import { LoginComponent } from './main/login/login.component';
     FuseModule.forRoot(fuseConfig),
     FuseSharedModule,
     FuseSidebarModule,
-    FuseThemeOptionsModule,
+    // FuseThemeOptionsModule,
 
     // App modules
     LayoutModule,
