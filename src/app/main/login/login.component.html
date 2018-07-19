@@ -31,10 +31,6 @@
           <mat-checkbox class="remember-me" aria-label="Remember Me">
             Remember Me
           </mat-checkbox>
-
-          <a class="forgot-password" [routerLink]="'/pages/auth/forgot-password'">
-            Forgot Password?
-          </a>
         </div>
 
         <button mat-raised-button color="accent" class="submit-button" aria-label="LOG IN"
@@ -43,23 +39,6 @@
         </button>
 
       </form>
-
-      <div class="separator">
-        <span class="text">OR</span>
-      </div>
-
-      <button mat-raised-button class="google">
-        Log in with Google
-      </button>
-
-      <button mat-raised-button class="facebook">
-        Log in with Facebook
-      </button>
-
-      <div class="register" fxLayout="column" fxLayoutAlign="center center">
-        <span class="text">Don't have an account?</span>
-        <a class="link" [routerLink]="'/pages/auth/register'">Create an account</a>
-      </div>
 
     </div>
 
