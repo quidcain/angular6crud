@@ -18,6 +18,8 @@ import { LayoutModule } from 'app/layout/layout.module';
 import { SampleModule } from 'app/main/sample/sample.module';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './main/login/login.component';
+import { TokenStorage } from './main/token.storage';
+import { LoginService } from './main/login.service';
 
 
 @NgModule({
@@ -52,6 +54,10 @@ import { LoginComponent } from './main/login/login.component';
     LayoutModule,
     SampleModule,
     AppRoutingModule
+  ],
+  providers: [
+    TokenStorage,
+    LoginService
   ],
   bootstrap: [
     AppComponent
