@@ -8,7 +8,7 @@ const httpOptions = {
 
 @Injectable()
 export class LoginService {
-  private url = 'http://localhost:8080/';
+  private url = 'http://localhost:8080/users/login';
 
   constructor(private http: HttpClient) { }
 
