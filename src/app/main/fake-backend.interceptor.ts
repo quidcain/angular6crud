@@ -13,7 +13,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
     return of(null).pipe(mergeMap(() => {
       if (req.url.endsWith('/users/login') && req.method === 'POST') {
         const body = {
-          email: req.body.email,
+          username: req.body.username,
           token: 'fake-jwt-token'
         };
         return of(new HttpResponse({status: 200, body}));

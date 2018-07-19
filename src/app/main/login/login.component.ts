@@ -21,14 +21,14 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
+      username: ['', Validators.required],
       password: ['', Validators.required]
     });
   }
 
   login(): void {
     if (this.loginForm.dirty && this.loginForm.valid) {
-      this.loginService.attemptLogin(this.loginForm.value.email, this.loginForm.value.password).subscribe(
+      this.loginService.attemptLogin(this.loginForm.value.username, this.loginForm.value.password).subscribe(
         data => {
           this.tokenStorage.saveToken(data.token);
           this.router.navigateByUrl('/success');
