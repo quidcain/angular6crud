@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
       this.loginService.attemptLogin(this.loginForm.value.username, this.loginForm.value.password).subscribe(
         data => {
           this.tokenStorage.saveToken(data.token);
-          this.router.navigateByUrl('/success');
+          this.router.navigateByUrl('/sample');
         }
       );
     }
