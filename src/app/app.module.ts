@@ -20,6 +20,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './main/login/login.component';
 import { TokenStorage } from './main/token.storage';
 import { LoginService } from './main/login.service';
+import { FakeBackendProvider } from './main/fake-backend.interceptor';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { LoginService } from './main/login.service';
   ],
   providers: [
     TokenStorage,
-    LoginService
+    LoginService,
+    FakeBackendProvider
   ],
   bootstrap: [
     AppComponent
