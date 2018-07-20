@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatIconModule, MatInputModule } from '@angular/material';
@@ -21,6 +21,8 @@ import { LoginComponent } from './main/login/login.component';
 import { TokenStorage } from './main/token.storage';
 import { LoginService } from './main/login.service';
 import { FakeBackendProvider } from './main/fake-backend.interceptor';
+import { JwtInterceptor } from './main/jwt.interceptor';
+import { ErrorHandlerImpl } from './main/error.handler';
 
 
 @NgModule({
@@ -59,7 +61,9 @@ import { FakeBackendProvider } from './main/fake-backend.interceptor';
   providers: [
     TokenStorage,
     LoginService,
-    FakeBackendProvider
+    FakeBackendProvider,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
+    { provide: ErrorHandler, useClass: ErrorHandlerImpl}
   ],
   bootstrap: [
     AppComponent
