@@ -20,7 +20,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './main/login/login.component';
 import { TokenStorage } from './main/token.storage';
 import { LoginService } from './main/login.service';
-import { FakeBackendProvider } from './main/fake-backend.interceptor';
 import { JwtInterceptor } from './main/jwt.interceptor';
 import { ErrorHandlerImpl } from './main/error.handler';
 
@@ -61,7 +60,6 @@ import { ErrorHandlerImpl } from './main/error.handler';
   providers: [
     TokenStorage,
     LoginService,
-    FakeBackendProvider,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
     { provide: ErrorHandler, useClass: ErrorHandlerImpl}
   ],
