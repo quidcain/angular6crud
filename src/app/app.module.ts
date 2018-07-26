@@ -15,7 +15,7 @@ import { fuseConfig } from 'app/fuse-config';
 
 import { AppComponent } from 'app/app.component';
 import { LayoutModule } from 'app/layout/layout.module';
-import { SampleModule } from 'app/main/sample/sample.module';
+import { HelloModule } from 'app/main/hello/hello.module';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './main/login/login.component';
 import { TokenStorage } from './main/token.storage';
@@ -55,7 +55,7 @@ import { ErrorHandlerImpl } from './main/error.handler';
 
     // App modules
     LayoutModule,
-    SampleModule,
+    HelloModule,
     AppRoutingModule
   ],
   providers: [

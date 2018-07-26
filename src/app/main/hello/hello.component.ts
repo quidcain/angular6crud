@@ -5,11 +5,11 @@ import { FuseTranslationLoaderService } from '@fuse/services/translation-loader.
 import { locale as english } from './i18n/en';
 
 @Component({
-  selector   : 'sample',
-  templateUrl: './sample.component.html',
-  styleUrls  : ['./sample.component.scss']
+  selector   : 'hello',
+  templateUrl: './hello.component.html',
+  styleUrls  : ['./hello.component.scss']
 })
-export class SampleComponent {
+export class HelloComponent {
   /**
    * Constructor
    *
