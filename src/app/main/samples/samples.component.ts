@@ -12,7 +12,7 @@ import { catchError, finalize, map } from 'rxjs/internal/operators';
 })
 export class SamplesComponent implements OnInit {
   dataSource: SamplesDataSource;
-  displayedColumns = [];
+  displayedColumns = ['id', 'columnA', 'columnB', 'columnC', 'columnD', 'columnE'];
 
   constructor(private sampleService: SampleService) { }
 
