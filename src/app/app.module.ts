@@ -3,13 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
-import { MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatIconModule, MatInputModule } from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatIconModule, MatInputModule, MatPaginatorModule, MatTableModule } from '@angular/material';
 import { TranslateModule } from '@ngx-translate/core';
 import 'hammerjs';
 
 import { FuseModule } from '@fuse/fuse.module';
 import { FuseSharedModule } from '@fuse/shared.module';
-import { FuseSidebarModule, FuseThemeOptionsModule } from '@fuse/components';
+import { FuseSidebarModule } from '@fuse/components';
 
 import { fuseConfig } from 'app/fuse-config';
 
@@ -22,12 +22,15 @@ import { TokenStorage } from './main/token.storage';
 import { LoginService } from './main/login.service';
 import { JwtInterceptor } from './main/jwt.interceptor';
 import { ErrorHandlerImpl } from './main/error.handler';
+import { SamplesComponent } from './main/samples/samples.component';
+import { SampleService } from './main/sample.service';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    SamplesComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +48,8 @@ import { ErrorHandlerImpl } from './main/error.handler';
     MatCheckboxModule,
     MatFormFieldModule,
     MatInputModule,
+    MatTableModule,
+    MatPaginatorModule,
 
     // Fuse modules
     FuseModule.forRoot(fuseConfig),
@@ -60,6 +65,7 @@ import { ErrorHandlerImpl } from './main/error.handler';
   providers: [
     TokenStorage,
     LoginService,
+    SampleService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
     { provide: ErrorHandler, useClass: ErrorHandlerImpl}
   ],
