@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Sample } from '../sample';
 import { CollectionViewer, DataSource } from '@angular/cdk/collections';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { SampleService } from '../sample.service';
-import { catchError, finalize, map } from 'rxjs/internal/operators';
+import { catchError, finalize, map, tap } from 'rxjs/internal/operators';
+import { MatPaginator, PageEvent } from '@angular/material';
 
 @Component({
   selector: 'app-samples',
@@ -14,19 +15,27 @@ export class SamplesComponent implements OnInit {
   dataSource: SamplesDataSource;
   displayedColumns = ['id', 'columnA', 'columnB', 'columnC', 'columnD', 'columnE'];
 
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+
   constructor(private sampleService: SampleService) { }
 
   ngOnInit(): void {
     this.dataSource = new SamplesDataSource(this.sampleService);
     this.dataSource.loadSamples();
   }
+
+  getServerData(event?: PageEvent): void {
+    this.dataSource.loadSamples(event.pageIndex, event.pageSize);
+  }
+
 }
 
 export class SamplesDataSource implements DataSource<Sample>{
   private samplesSubject = new BehaviorSubject<Sample[]>([]);
   private loadingSubject = new BehaviorSubject<boolean>(false);
 
-  public loading$ = this.loadingSubject.asObservable();
+  loading$ = this.loadingSubject.asObservable();
+  length = 0;
 
   constructor(private sampleService: SampleService) { }
 
@@ -39,12 +48,13 @@ export class SamplesDataSource implements DataSource<Sample>{
     this.loadingSubject.complete();
   }
 
-  loadSamples(): void {
+  loadSamples(pageNumber = null, pageSize = null): void {
     this.loadingSubject.next(true);
 
-    this.sampleService.findAll()
+    this.sampleService.findAll(pageNumber, pageSize)
       .pipe(
-        map(samplesPage => samplesPage.content),
+        tap(samplePage => this.length = samplePage.totalPages * samplePage.content.length),
+        map(samplePage => samplePage.content),
         catchError(() => of([])),
         finalize(() => this.loadingSubject.next(false))
       )

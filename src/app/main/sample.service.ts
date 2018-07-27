@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { SamplePage } from './sample-page';
 
@@ -9,7 +9,14 @@ export class SampleService {
 
   constructor(private http: HttpClient) { }
 
-  findAll(): Observable<SamplePage> {
-    return this.http.get<SamplePage>(this.url);
+  findAll(pageNumber = null, pageSize = null): Observable<SamplePage> {
+    let params = new HttpParams();
+    if (pageNumber) {
+      params = params.set('page', pageNumber);
+    }
+    if (pageSize) {
+      params = params.set('size', pageSize);
+    }
+    return this.http.get<SamplePage>(this.url, {params});
   }
 }
