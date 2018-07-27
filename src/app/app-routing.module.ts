@@ -6,7 +6,7 @@ import { SamplesComponent } from './main/samples/samples.component';
 const routes: Routes = [
   { path: '',  redirectTo: 'hello', pathMatch: 'full' },
   { path: 'login',  component: LoginComponent },
-  { path: 'samples',  component: SamplesComponent }
+  { path: 'sample',  component: SamplesComponent }
 ];
 
 @NgModule({
