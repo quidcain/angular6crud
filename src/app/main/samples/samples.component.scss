@@ -24,3 +24,16 @@ mat-spinner {
   margin: 0 auto;
   top: 30%;
 }
+
+td.mat-cell,
+td.mat-footer-cell,
+th.mat-header-cell {
+  padding: 5px;
+}
+
+.add-button {
+  position: absolute;
+  // right: 176px;
+  right: 35px;
+  top: -45px;
+}

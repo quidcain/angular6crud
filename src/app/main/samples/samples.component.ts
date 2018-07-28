@@ -13,7 +13,7 @@ import { MatPaginator, PageEvent } from '@angular/material';
 })
 export class SamplesComponent implements OnInit {
   dataSource: SamplesDataSource;
-  displayedColumns = ['id', 'columnA', 'columnB', 'columnC', 'columnD', 'columnE'];
+  displayedColumns = ['id', 'columnA', 'columnB', 'columnC', 'columnD', 'columnE', 'modify', 'modify with popup', 'cancellation'];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
