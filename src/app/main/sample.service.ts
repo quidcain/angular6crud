@@ -10,7 +10,7 @@ const httpOptions = {
 
 @Injectable()
 export class SampleService {
-  private url = 'http://localhost:8080/sample';
+  private url = 'http://localhost:8080/samples';
 
   constructor(private http: HttpClient) { }
 

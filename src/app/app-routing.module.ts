@@ -8,9 +8,9 @@ import { ModifySampleComponent } from './main/modify-sample/modify-sample.compon
 const routes: Routes = [
   { path: '',  redirectTo: 'hello', pathMatch: 'full' },
   { path: 'login',  component: LoginComponent },
-  { path: 'sample',  component: SamplesComponent },
-  { path: 'sample/add',  component: AddSampleComponent },
-  { path: 'sample/:id',  component: ModifySampleComponent }
+  { path: 'samples',  component: SamplesComponent },
+  { path: 'samples/add',  component: AddSampleComponent },
+  { path: 'samples/:id',  component: ModifySampleComponent }
 ];
 
 @NgModule({
