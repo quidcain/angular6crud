@@ -1,6 +1,6 @@
 <div class="sample-wrapper">
   <a routerLink="/sample/add">
-    <button mat-raised-button color="primary" class="add-button">add</button>
+    <button mat-raised-button color="primary" class="add-button">Add</button>
   </a>
   <div class="mat-elevation-z8 table-wrappper">
     <div class="spinner-container" *ngIf="dataSource.loading$ | async">
@@ -42,7 +42,7 @@
         <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let sample">
           <a routerLink="/sample/{{sample.id}}">
-            <button mat-raised-button color="primary">modify</button>
+            <button mat-raised-button color="primary">Modify</button>
           </a>
         </td>
       </ng-container>
@@ -50,14 +50,14 @@
       <ng-container matColumnDef="modify with popup">
         <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let sample">
-          <button mat-raised-button color="primary" (click)="clickModifyWithPopup(sample.id)">modify with popup</button>
+          <button mat-raised-button color="primary" (click)="clickModifyWithPopup(sample.id)">Modify with popup</button>
         </td>
       </ng-container>
 
       <ng-container matColumnDef="cancellation">
         <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let sample">
-          <button mat-raised-button color="warn" (click)="clickCancellation(sample.id)">cancellation</button>
+          <button mat-raised-button color="warn" (click)="clickCancellation(sample.id)">Cancellation</button>
         </td>
       </ng-container>
 
