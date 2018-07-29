@@ -24,7 +24,6 @@ import { fuseConfig } from 'app/fuse-config';
 
 import { AppComponent } from 'app/app.component';
 import { LayoutModule } from 'app/layout/layout.module';
-import { HelloModule } from 'app/main/hello/hello.module';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './main/login/login.component';
 import { TokenStorage } from './main/token.storage';
@@ -84,7 +83,6 @@ import { CancellationDialogComponent } from './main/cancellation-dialog/cancella
 
     // App modules
     LayoutModule,
-    HelloModule,
     AppRoutingModule
   ],
   providers: [

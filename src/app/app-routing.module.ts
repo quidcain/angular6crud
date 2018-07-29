@@ -6,7 +6,7 @@ import { AddSampleComponent } from './main/add-sample/add-sample.component';
 import { ModifySampleComponent } from './main/modify-sample/modify-sample.component';
 
 const routes: Routes = [
-  { path: '',  redirectTo: 'hello', pathMatch: 'full' },
+  { path: '',  redirectTo: 'login', pathMatch: 'full' },
   { path: 'login',  component: LoginComponent },
   { path: 'samples',  component: SamplesComponent },
   { path: 'samples/add',  component: AddSampleComponent },
