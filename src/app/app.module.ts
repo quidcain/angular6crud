@@ -5,7 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import {
   MatButtonModule,
-  MatCheckboxModule,
+  MatCheckboxModule, MatDialogModule,
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
@@ -36,6 +36,7 @@ import { SampleService } from './main/sample.service';
 import { AddSampleComponent } from './main/add-sample/add-sample.component';
 import { FormsModule } from '@angular/forms';
 import { ModifySampleComponent } from './main/modify-sample/modify-sample.component';
+import { ModifySampleDialogComponent } from './main/modify-sample-dialog/modify-sample-dialog.component';
 
 
 @NgModule({
@@ -44,7 +45,11 @@ import { ModifySampleComponent } from './main/modify-sample/modify-sample.compon
     LoginComponent,
     SamplesComponent,
     AddSampleComponent,
-    ModifySampleComponent
+    ModifySampleComponent,
+    ModifySampleDialogComponent
+  ],
+  entryComponents: [
+    ModifySampleDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -66,6 +71,7 @@ import { ModifySampleComponent } from './main/modify-sample/modify-sample.compon
     MatTableModule,
     MatPaginatorModule,
     MatProgressSpinnerModule,
+    MatDialogModule,
 
     // Fuse modules
     FuseModule.forRoot(fuseConfig),

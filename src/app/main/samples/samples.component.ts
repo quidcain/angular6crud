@@ -3,8 +3,9 @@ import { Sample } from '../sample';
 import { CollectionViewer, DataSource } from '@angular/cdk/collections';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { SampleService } from '../sample.service';
-import { catchError, finalize, map, tap } from 'rxjs/internal/operators';
-import { MatPaginator, PageEvent } from '@angular/material';
+import { catchError, filter, finalize, map, tap, switchMap } from 'rxjs/operators';
+import { MatDialog, MatPaginator, PageEvent } from '@angular/material';
+import { ModifySampleDialogComponent } from '../modify-sample-dialog/modify-sample-dialog.component';
 
 @Component({
   selector: 'app-samples',
@@ -17,7 +18,8 @@ export class SamplesComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private sampleService: SampleService) { }
+  constructor(private sampleService: SampleService,
+              private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.dataSource = new SamplesDataSource(this.sampleService);
@@ -29,9 +31,22 @@ export class SamplesComponent implements OnInit {
   }
 
   clickCancellation(id: number): void {
-    const paginator = this.paginator;
-    console.log(`id = ${id}, pageIndex = ${paginator.pageIndex}`);
-    this.sampleService.delete(id).subscribe(() => this.dataSource.loadSamples(paginator.pageIndex, paginator.pageSize));
+    this.sampleService.delete(id)
+      .subscribe(() => this.dataSource.loadSamples(this.paginator.pageIndex, this.paginator.pageSize));
+  }
+
+  clickModifyWithPopup(id: number): void {
+    const dialogRef = this.dialog.open(ModifySampleDialogComponent, {data: {id}});
+    dialogRef.afterClosed()
+      .pipe(
+        filter(answer => !!answer),
+        switchMap(sample => this.update(sample))
+      )
+      .subscribe(() => this.dataSource.loadSamples(this.paginator.pageIndex, this.paginator.pageSize));
+  }
+
+  private update(sample: Sample): Observable<any> {
+    return this.sampleService.update(sample);
   }
 }
 
