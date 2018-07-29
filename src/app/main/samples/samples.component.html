@@ -41,7 +41,9 @@
       <ng-container matColumnDef="modify">
         <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let sample">
-          <button mat-raised-button color="primary">modify</button>
+          <a routerLink="/sample/{{sample.id}}">
+            <button mat-raised-button color="primary">modify</button>
+          </a>
         </td>
       </ng-container>
 

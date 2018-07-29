@@ -29,6 +29,16 @@ export class SampleService {
     return this.http.post(this.url, sample, httpOptions);
   }
 
+  getById(id: number): Observable<any> {
+    const url = `${this.url}/${id}`;
+    return this.http.get(url);
+  }
+
+  update(sample: Sample): Observable<void> {
+    const url = `${this.url}/${sample.id}`;
+    return this.http.put<void>(url, sample, httpOptions);
+  }
+
   delete(id: number): Observable<any> {
     const url = `${this.url}/${id}`;
     return this.http.delete(url);

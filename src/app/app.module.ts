@@ -35,6 +35,7 @@ import { SamplesComponent } from './main/samples/samples.component';
 import { SampleService } from './main/sample.service';
 import { AddSampleComponent } from './main/add-sample/add-sample.component';
 import { FormsModule } from '@angular/forms';
+import { ModifySampleComponent } from './main/modify-sample/modify-sample.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     LoginComponent,
     SamplesComponent,
-    AddSampleComponent
+    AddSampleComponent,
+    ModifySampleComponent
   ],
   imports: [
     BrowserModule,

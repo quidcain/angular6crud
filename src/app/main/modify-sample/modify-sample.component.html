@@ -1,0 +1,27 @@
+<div class="modify-sample-wrapper">
+  <h2>
+    Modify existing sample
+  </h2>
+  <div class="mat-elevation-z8 form-container">
+    <mat-form-field>
+      <input matInput placeholder="Column A" [(ngModel)]="sample.columnA">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Column B" [(ngModel)]="sample.columnB">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Column C" [(ngModel)]="sample.columnC">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Column D" [(ngModel)]="sample.columnD">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Column E" [(ngModel)]="sample.columnE">
+    </mat-form-field>
+
+    <button mat-raised-button (click)="modify()">Submit</button>
+  </div>
+</div>
