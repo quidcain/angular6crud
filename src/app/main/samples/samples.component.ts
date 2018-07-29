@@ -28,6 +28,11 @@ export class SamplesComponent implements OnInit {
     this.dataSource.loadSamples(event.pageIndex, event.pageSize);
   }
 
+  clickCancellation(id: number): void {
+    const paginator = this.paginator;
+    console.log(`id = ${id}, pageIndex = ${paginator.pageIndex}`);
+    this.sampleService.delete(id).subscribe(() => this.dataSource.loadSamples(paginator.pageIndex, paginator.pageSize));
+  }
 }
 
 export class SamplesDataSource implements DataSource<Sample>{

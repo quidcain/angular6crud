@@ -1,7 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { SamplePage } from './sample-page';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json'})
+};
 
 @Injectable()
 export class SampleService {
@@ -18,5 +22,10 @@ export class SampleService {
       params = params.set('size', pageSize);
     }
     return this.http.get<SamplePage>(this.url, {params});
+  }
+
+  delete(id: number): Observable<any> {
+    const url = `${this.url}/${id}`;
+    return this.http.delete(url);
   }
 }
