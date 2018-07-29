@@ -19,5 +19,4 @@ export class AddSampleComponent implements OnInit {
   add(): void {
     this.sampleService.create(this.sample).subscribe();
   }
-
 }

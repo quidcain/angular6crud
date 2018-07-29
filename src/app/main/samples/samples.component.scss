@@ -4,13 +4,15 @@
   box-sizing: border-box;
 }
 
-table {
-  width: 100%;
-}
-
 .sample-wrapper {
   margin: auto;
   position: relative;
+}
+
+.add-button {
+  position: absolute;
+  right: 35px;
+  top: -45px;
 }
 
 .spinner-container {
@@ -25,15 +27,12 @@ mat-spinner {
   top: 30%;
 }
 
+table {
+  width: 100%;
+}
+
 td.mat-cell,
 td.mat-footer-cell,
 th.mat-header-cell {
   padding: 5px;
-}
-
-.add-button {
-  position: absolute;
-  // right: 176px;
-  right: 35px;
-  top: -45px;
 }
