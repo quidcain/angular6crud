@@ -37,6 +37,7 @@ import { AddSampleComponent } from './main/add-sample/add-sample.component';
 import { FormsModule } from '@angular/forms';
 import { ModifySampleComponent } from './main/modify-sample/modify-sample.component';
 import { ModifySampleDialogComponent } from './main/modify-sample-dialog/modify-sample-dialog.component';
+import { CancellationDialogComponent } from './main/cancellation-dialog/cancellation-dialog.component';
 
 
 @NgModule({
@@ -46,10 +47,12 @@ import { ModifySampleDialogComponent } from './main/modify-sample-dialog/modify-
     SamplesComponent,
     AddSampleComponent,
     ModifySampleComponent,
-    ModifySampleDialogComponent
+    ModifySampleDialogComponent,
+    CancellationDialogComponent
   ],
   entryComponents: [
-    ModifySampleDialogComponent
+    ModifySampleDialogComponent,
+    CancellationDialogComponent
   ],
   imports: [
     BrowserModule,

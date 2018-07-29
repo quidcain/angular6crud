@@ -6,6 +6,7 @@ import { SampleService } from '../sample.service';
 import { catchError, filter, finalize, map, tap, switchMap } from 'rxjs/operators';
 import { MatDialog, MatPaginator, PageEvent } from '@angular/material';
 import { ModifySampleDialogComponent } from '../modify-sample-dialog/modify-sample-dialog.component';
+import { CancellationDialogComponent } from '../cancellation-dialog/cancellation-dialog.component';
 
 @Component({
   selector: 'app-samples',
@@ -31,7 +32,12 @@ export class SamplesComponent implements OnInit {
   }
 
   clickCancellation(id: number): void {
-    this.sampleService.delete(id)
+    const dialogRef = this.dialog.open(CancellationDialogComponent);
+    dialogRef.afterClosed()
+      .pipe(
+        filter(answer => answer),
+        switchMap(() => this.sampleService.delete(id))
+      )
       .subscribe(() => this.dataSource.loadSamples(this.paginator.pageIndex, this.paginator.pageSize));
   }
 
