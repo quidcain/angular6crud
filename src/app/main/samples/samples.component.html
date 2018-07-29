@@ -1,5 +1,7 @@
 <div class="sample-wrapper">
-  <button mat-raised-button color="primary" class="add-button">add</button>
+  <a routerLink="/sample/add">
+    <button mat-raised-button color="primary" class="add-button">add</button>
+  </a>
   <div class="mat-elevation-z8 table-wrappper">
     <div class="spinner-container" *ngIf="dataSource.loading$ | async">
       <mat-spinner></mat-spinner>

@@ -33,16 +33,20 @@ import { JwtInterceptor } from './main/jwt.interceptor';
 import { ErrorHandlerImpl } from './main/error.handler';
 import { SamplesComponent } from './main/samples/samples.component';
 import { SampleService } from './main/sample.service';
+import { AddSampleComponent } from './main/add-sample/add-sample.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    SamplesComponent
+    SamplesComponent,
+    AddSampleComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
 
