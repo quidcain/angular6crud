@@ -9,6 +9,5 @@ export class ErrorHandlerImpl implements ErrorHandler {
         alert('Unauthorized!');
       }
     }
-    console.log('ok');
   }
 }
