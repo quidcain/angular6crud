@@ -1,7 +1,4 @@
-<div class="sample-wrapper">
-  <a routerLink="/samples/add">
-    <button mat-raised-button color="primary" class="add-button">Add</button>
-  </a>
+<div class="samples-wrapper">
   <div class="mat-elevation-z8 table-wrappper">
     <div class="spinner-container" *ngIf="dataSource.loading$ | async">
       <mat-spinner></mat-spinner>
@@ -32,7 +29,11 @@
         <td mat-cell *matCellDef="let sample"> {{sample.columnE}} </td>
       </ng-container>
       <ng-container matColumnDef="modify">
-        <th mat-header-cell *matHeaderCellDef></th>
+        <th mat-header-cell *matHeaderCellDef>
+          <a routerLink="/samples/add">
+            <button mat-raised-button color="primary" class="add-button">Add</button>
+          </a>
+        </th>
         <td mat-cell *matCellDef="let sample">
           <a routerLink="/samples/{{sample.id}}">
             <button mat-raised-button color="primary">Modify</button>

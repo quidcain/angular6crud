@@ -4,15 +4,11 @@
   box-sizing: border-box;
 }
 
-.sample-wrapper {
+.samples-wrapper {
   margin: auto;
   position: relative;
-}
-
-.add-button {
-  position: absolute;
-  right: 35px;
-  top: -45px;
+  flex-grow: 1;
+  padding: 0 30px;
 }
 
 .spinner-container {
