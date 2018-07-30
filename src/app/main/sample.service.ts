@@ -25,8 +25,8 @@ export class SampleService {
     return this.http.get<SamplePage>(this.url, {params});
   }
 
-  create(sample: Sample): Observable<any> {
-    return this.http.post(this.url, sample, httpOptions);
+  create(sample: Sample): Observable<void> {
+    return this.http.post<void>(this.url, sample, httpOptions);
   }
 
   getById(id: number): Observable<any> {
