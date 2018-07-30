@@ -4,6 +4,7 @@ import { fuseAnimations } from '@fuse/animations';
 import { TokenStorage } from '../token.storage';
 import { Router } from '@angular/router';
 import { LoginService } from '../login.service';
+import { FuseConfigService } from '../../../@fuse/services/config.service';
 
 @Component({
   selector: 'app-login',
@@ -14,10 +15,21 @@ import { LoginService } from '../login.service';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder,
+  constructor(
+              private fuseConfigService: FuseConfigService,
+              private formBuilder: FormBuilder,
               private tokenStorage: TokenStorage,
               private loginService: LoginService,
-              private router: Router) { }
+              private router: Router) {
+    this.fuseConfigService.config = {
+      layout: {
+        navbar: { hidden: true },
+        toolbar: { hidden: true },
+        footer: { hidden: true },
+        sidepanel: { hidden: true }
+      }
+    };
+  }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
