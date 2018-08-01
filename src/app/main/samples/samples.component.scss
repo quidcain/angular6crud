@@ -8,7 +8,12 @@
   margin: auto;
   position: relative;
   flex-grow: 1;
-  padding: 0 30px;
+  padding: 30px;
+  height: 100%;
+}
+
+.table-wrappper {
+  height: inherit;
 }
 
 .spinner-container {
@@ -25,6 +30,7 @@ mat-spinner {
 
 table {
   width: 100%;
+  height: calc(100% - 71.5px);
 }
 
 td.mat-cell,
