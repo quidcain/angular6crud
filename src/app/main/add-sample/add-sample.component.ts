@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { SampleService } from '../sample.service';
 import { Sample } from '../sample';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-sample',
@@ -10,13 +11,16 @@ import { Sample } from '../sample';
 export class AddSampleComponent implements OnInit {
   @Input() sample: Sample;
 
-  constructor(private sampleService: SampleService) { }
+  constructor(private router: Router,
+              private route: ActivatedRoute,
+              private sampleService: SampleService) { }
 
   ngOnInit(): void {
     this.sample = new Sample();
   }
 
   add(): void {
-    this.sampleService.create(this.sample).subscribe();
+    this.sampleService.create(this.sample)
+      .subscribe(() => this.router.navigate(['../'], {relativeTo: this.route}));
   }
 }

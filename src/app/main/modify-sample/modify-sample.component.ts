@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SampleService } from '../sample.service';
 import { Sample } from '../sample';
 import { Observable } from 'rxjs';
@@ -12,7 +12,8 @@ import { Observable } from 'rxjs';
 export class ModifySampleComponent implements OnInit {
   @Input() sample: Sample;
 
-  constructor(private route: ActivatedRoute,
+  constructor(private router: Router,
+              private route: ActivatedRoute,
               private sampleService: SampleService) { }
 
   ngOnInit(): void {
@@ -25,6 +26,7 @@ export class ModifySampleComponent implements OnInit {
   }
 
   modify(): void {
-    this.sampleService.update(this.sample).subscribe();
+    this.sampleService.update(this.sample)
+      .subscribe(() => this.router.navigate(['../'], {relativeTo: this.route}));
   }
 }
