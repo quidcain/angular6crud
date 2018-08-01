@@ -9,7 +9,6 @@ export class TokenStorage {
 
   signOut(): void {
     this.storage.removeItem(TOKEN_KEY);
-    this.storage.clear();
   }
 
   saveToken(token: string): void {
