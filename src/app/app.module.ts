@@ -18,7 +18,7 @@ import 'hammerjs';
 
 import { FuseModule } from '@fuse/fuse.module';
 import { FuseSharedModule } from '@fuse/shared.module';
-import { FuseSidebarModule } from '@fuse/components';
+import { FuseSidebarModule, FuseThemeOptionsModule } from '@fuse/components';
 
 import { fuseConfig } from 'app/fuse-config';
 
@@ -79,7 +79,7 @@ import { CancellationDialogComponent } from './main/cancellation-dialog/cancella
     FuseModule.forRoot(fuseConfig),
     FuseSharedModule,
     FuseSidebarModule,
-    // FuseThemeOptionsModule,
+    FuseThemeOptionsModule,
 
     // App modules
     LayoutModule,

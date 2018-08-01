@@ -15,22 +15,22 @@ export const fuseConfig: FuseConfig = {
         navbar   : {
             background: 'mat-fuse-dark-700-bg',
             folded    : false,
-            hidden    : true,
+            hidden    : false,
             position  : 'left',
             variant   : 'vertical-style-1'
         },
         toolbar  : {
             background: 'mat-white-500-bg',
-            hidden    : true,
+            hidden    : false,
             position  : 'below-static'
         },
         footer   : {
             background: 'mat-fuse-dark-900-bg',
-            hidden    : true,
+            hidden    : false,
             position  : 'below-fixed'
         },
         sidepanel: {
-            hidden  : true,
+            hidden  : false,
             position: 'right'
         }
     },
