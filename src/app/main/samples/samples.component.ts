@@ -24,7 +24,7 @@ export class SamplesComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataSource = new SamplesDataSource(this.sampleService);
-    this.dataSource.loadSamples();
+    this.dataSource.loadSamples(0, 10);
   }
 
   getServerData(event?: PageEvent): void {
