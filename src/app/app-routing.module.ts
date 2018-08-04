@@ -5,14 +5,15 @@ import { SamplesComponent } from './main/samples/samples.component';
 import { AddSampleComponent } from './main/add-sample/add-sample.component';
 import { ModifySampleComponent } from './main/modify-sample/modify-sample.component';
 import { LogoutComponent } from './main/logout/logout.component';
+import { AuthGuard } from './main/auth.guard';
 
 const routes: Routes = [
   { path: '',  redirectTo: 'login', pathMatch: 'full' },
   { path: 'login',  component: LoginComponent },
   { path: 'logout',  component: LogoutComponent },
-  { path: 'samples',  component: SamplesComponent },
-  { path: 'samples/add',  component: AddSampleComponent },
-  { path: 'samples/:id',  component: ModifySampleComponent }
+  { path: 'samples',  component: SamplesComponent, canActivate: [AuthGuard] },
+  { path: 'samples/add',  component: AddSampleComponent, canActivate: [AuthGuard] },
+  { path: 'samples/:id',  component: ModifySampleComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

@@ -81,7 +81,6 @@ export class SamplesDataSource implements DataSource<Sample>{
       .pipe(
         tap(samplePage => this.length = samplePage.totalPages * samplePage.content.length),
         map(samplePage => samplePage.content),
-        catchError(() => of([])),
         finalize(() => this.loadingSubject.next(false))
       )
       .subscribe(samples => this.samplesSubject.next(samples));

@@ -38,6 +38,7 @@ import { ModifySampleComponent } from './main/modify-sample/modify-sample.compon
 import { ModifySampleDialogComponent } from './main/modify-sample-dialog/modify-sample-dialog.component';
 import { CancellationDialogComponent } from './main/cancellation-dialog/cancellation-dialog.component';
 import { LogoutComponent } from './main/logout/logout.component';
+import { AuthGuard } from './main/auth.guard';
 
 
 @NgModule({
@@ -91,6 +92,7 @@ import { LogoutComponent } from './main/logout/logout.component';
     TokenStorage,
     LoginService,
     SampleService,
+    AuthGuard,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
     { provide: ErrorHandler, useClass: ErrorHandlerImpl}
   ],
